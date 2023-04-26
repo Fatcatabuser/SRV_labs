@@ -90,7 +90,7 @@ int main(void)
 
 int process_1(void)
 {
-    //sem_wait(&(sm->sem));
+    sem_wait(&(sm->sem));
     printf("First process.\n(1) Previous value: %i\n", sm->value);
 
     sm->value = 10;
@@ -98,13 +98,13 @@ int process_1(void)
     sm->value *= 4;
     sm->value -= 15;
     printf("(1) Result : %i \n", sm->value);
-    //sem_post(&(sm->sem));
+    sem_post(&(sm->sem));
     return 0;
 }
 
 int process_2(void)
 {
-    //sem_wait(&(sm->sem));
+    sem_wait(&(sm->sem));
     printf("Second process.\n(2) Previous value: %i\n", sm->value);
 
     sm->value = 7;
@@ -112,7 +112,7 @@ int process_2(void)
     sm->value *= 2;
     sm->value -= 1;
     printf("(2) Result : %i \n", sm->value);
-    //sem_post(&(sm->sem));
+    sem_post(&(sm->sem));
     return 0;
 }
 
