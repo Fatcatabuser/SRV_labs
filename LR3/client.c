@@ -6,7 +6,7 @@
 
 int main()
 {
-    char smsg[30] = "Sergei Sisoev I993";
+    char smsg[30];
     char rmsg[200];
     int coid;
     long serv_pid;
@@ -14,6 +14,7 @@ int main()
     scanf("%ld", &serv_pid);
     coid = ConnectAttach(0, serv_pid, 1, 0, 0);
     printf("Connect res %d \n , vvedite soobshenie\n", coid);
+    scanf("%30s",&smsg);
     printf("Vveli %s \n", smsg);
     if (MsgSend(coid, smsg, strlen(smsg) + 1, rmsg, sizeof(rmsg)) == -1)
     {
